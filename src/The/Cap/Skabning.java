@@ -3,7 +3,7 @@ package The.Cap;
 public class Skabning {
     String navn;
     int styrke;
-    String look;
+    public String look = "No creatures to be seen!";
 
     public Skabning(String navn, int styrke, String look){
         this.navn= navn;
@@ -17,5 +17,10 @@ public class Skabning {
 
     public String getLook() {
         return look;
+    }
+
+    void skabningdead(){
+        this.styrke=0;
+        this.look ="In front of you, you see a dead creature!";
     }
 }

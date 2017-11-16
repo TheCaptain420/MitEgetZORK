@@ -2,13 +2,13 @@ package The.Cap;
 
 public class Felt {
     String beskrivelse;
-    Genstand[] genstand;
-    Skabning skabning;
+    Genstand genstand= new Genstand("No objects to see..."," ", 0);
+    Skabning skabning= new Skabning("No creatures to see...",0," ") ;
+
 
 
     public Felt(){
         beskrivelse = "You are in a forest. ";
-        genstand = new Genstand[3];//maks være 3 genstande på et felt
     }
 
     public String getBeskrivelse() {

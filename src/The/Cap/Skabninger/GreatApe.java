@@ -3,9 +3,9 @@ package The.Cap.Skabninger;
 import The.Cap.Skabning;
 
 public class GreatApe extends Skabning {
-    String navn;
-    int Styrke;
-    String look;
+    String navn= "ye";
+    int Styrke = 5;
+    String look= "look";
 
 
 
