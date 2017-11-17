@@ -1,15 +1,15 @@
 package The.Cap;
 
-import java.util.ArrayList;
 
 public class Player {
     String name;
     int posX = 2;
-    int posY = 2;
+    int posY = 4;
     int styrke = 1;
     boolean alive = true;
     Kort hentKortData = new Kort();
     String vaabenBeskrivelse="You have no weapons!";
+    static int point=0;
 
 
     public Player(String navn){
@@ -18,7 +18,7 @@ public class Player {
     }
 
     void displayPos(){
-        System.out.println("Your current positiond is X:"+posX+" - Y:"+posY);
+        //System.out.println("Your current position is X:"+posX+" - Y:"+posY);
     }
 
     public void setPosition(int posX, int posY){
@@ -60,17 +60,24 @@ public class Player {
     }
 
     void playerFight(){
-        if(hentKortData.kort[posX][posY].skabning.styrke < styrke){
-            System.out.println("The creature has been slain, you stand victorious!");
-            hentKortData.kort[posX][posY].skabning.skabningdead();
-        }else if(hentKortData.kort[posX][posY].skabning.styrke > styrke){
-            playerDeath();
+        System.out.println("FIGHTING!!!");
+        if(hentKortData.kort[posX][posY].skabning.styrke>1){
+            if(hentKortData.kort[posX][posY].skabning.styrke < styrke){
+                System.out.println("The creature has been slain, you stand victorious!"+hentKortData.kort[posX][posY].skabning.PickUP);
+                hentKortData.kort[posX][posY].skabning.skabningdead();
+                point+=1;
+
+            }else if(hentKortData.kort[posX][posY].skabning.styrke > styrke){
+                playerDeath();
+            }
+        }else {
+            System.out.println("No creatures to be seen!");
         }
     }
     void playerPickUp(){
         this.vaabenBeskrivelse = hentKortData.kort[posX][posY].genstand.navn;
         this.styrke = hentKortData.kort[posX][posY].genstand.styrke;
-        System.out.println("You've successfully picked up "+ hentKortData.kort[posX][posY].genstand.navn);
+        System.out.println("You've successfully picked up: "+ hentKortData.kort[posX][posY].genstand.navn);
     }
 
     void currentPower(){
@@ -80,6 +87,7 @@ public class Player {
     void playerDeath(){
         alive = false;
         System.out.println("You have died! Start over!");
+        System.out.println("Your score: "+point);
     }
 
 

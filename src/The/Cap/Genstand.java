@@ -11,6 +11,7 @@ public class Genstand  {
         this.styrke = styrke;
     }
 
+
     void position(int x, int y){
 
     }
