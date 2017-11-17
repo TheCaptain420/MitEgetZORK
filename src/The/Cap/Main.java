@@ -6,17 +6,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Zork! Following Commands are available:");
-        System.out.println("w(north), s(south), d(east), a(west), f(fight), p(current power), u(use/pickup)");
+        Player spiller = new Player("Frank");
+        System.out.println("Following Commands are available:");
+        System.out.println("w(north), s(south), d(east), a(west), f(fight), p(current power/iventory), u(use/pickup).");
         Kort kortet = new Kort();
 
 
-        Player spiller = new Player("Frank");
-        spiller.displayPos();
-        spiller.setPosition(1,1);
         spiller.displayPos();
 
-        //kortet;
+
+        //commands;
         while(spiller.alive){
             Scanner input = new Scanner(System.in);
             String func = input.next();
@@ -31,7 +30,7 @@ public class Main {
             }else if(Objects.equals(func, "u")){
                 spiller.playerPickUp();
             }else if(Objects.equals(func, "p")){
-
+                spiller.currentPower();
             }else if(Objects.equals(func, "f")){
                 spiller.playerFight();
             }

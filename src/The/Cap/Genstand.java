@@ -1,9 +1,9 @@
 package The.Cap;
 
 public class Genstand  {
-    String navn;
-    String beskrivelse;
-    int styrke;
+    String navn="";
+    String beskrivelse = "";
+    int styrke= 1;
 
     public Genstand(String navn, String beskrivelse, int styrke) {
         this.navn = navn;

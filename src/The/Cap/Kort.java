@@ -15,10 +15,10 @@ public class Kort {
             }
         }
         //Tilføjer skabning/Genstande på kortet herunder
-        Troll testTroll = new Troll("TestTroll", 4,"In front of you, you see a troll!");
+        Troll testTroll = new Troll("TestTroll", 4,"In front of you, you see a troll. His power is 4!");
         kort[1][1].skabning = testTroll;
 
-        GreatApe testApe = new GreatApe("TestApe",8,"In front of you, you see a GreatApe!");
+        GreatApe testApe = new GreatApe("TestApe",8,"In front of you, you see a GreatApe. His power is 8!");
         kort[1][2].skabning = testApe;
 
         Swords dawnBreaker = new Swords("DawnBreaker","A mighty sword!",10);
@@ -29,7 +29,7 @@ public class Kort {
     }
 
     String look(int x, int y){
-        return kort[x][y].getBeskrivelse()+ kort[x][y].skabning.look +kort[x][y].genstand.beskrivelse;
+        return kort[x][y].getBeskrivelse()+ kort[x][y].skabning.look ;
 
     }
 

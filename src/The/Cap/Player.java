@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Player {
     String name;
-    ArrayList<Genstand> genstandArrayList;
     int posX = 2;
     int posY = 2;
     int styrke = 1;
     boolean alive = true;
     Kort hentKortData = new Kort();
+    String vaabenBeskrivelse="You have no weapons!";
 
 
     public Player(String navn){
@@ -18,7 +18,7 @@ public class Player {
     }
 
     void displayPos(){
-        System.out.println("X:"+posX+" - Y:"+posY);
+        System.out.println("Your current positiond is X:"+posX+" - Y:"+posY);
     }
 
     public void setPosition(int posX, int posY){
@@ -68,10 +68,14 @@ public class Player {
         }
     }
     void playerPickUp(){
-        genstandArrayList.add(hentKortData.kort[posX][posY].genstand);
+        this.vaabenBeskrivelse = hentKortData.kort[posX][posY].genstand.navn;
+        this.styrke = hentKortData.kort[posX][posY].genstand.styrke;
         System.out.println("You've successfully picked up "+ hentKortData.kort[posX][posY].genstand.navn);
     }
 
+    void currentPower(){
+        System.out.println("Your current power is "+styrke+" out of 10. You are currently holding : "+ vaabenBeskrivelse);
+    }
 
     void playerDeath(){
         alive = false;
